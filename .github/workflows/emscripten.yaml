@@ -4,6 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VCPKG_DEFAULT_TRIPLET: wasm32-emscripten
     steps:
       - uses: mymindstorm/setup-emsdk@v14
 
