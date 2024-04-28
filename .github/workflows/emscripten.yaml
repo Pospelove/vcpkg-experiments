@@ -4,8 +4,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      VCPKG_DEFAULT_TRIPLET: wasm32-emscripten
     steps:
       - uses: mymindstorm/setup-emsdk@v14
 
@@ -16,3 +14,4 @@ jobs:
           git clone https://github.com/microsoft/vcpkg.git
           cd vcpkg
           ./bootstrap-vcpkg.sh
+          ./vcpkg install boost-system:wasm32-emscripten
