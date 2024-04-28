@@ -1,0 +1,16 @@
+name: "emsdk"
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mymindstorm/setup-emsdk@v14
+
+      - name: Verify
+        run: emcc -v
+
+      - uses: lukka/get-cmake@latest
+
+      - name: Setup anew (or from cache) vcpkg (and does not build any package)
+        uses: lukka/run-vcpkg@v11
