@@ -15,10 +15,10 @@ jobs:
           cd vcpkg
           #git reset --hard 0551bc744c8165449acefb6778407e05da3129a2
           ./bootstrap-vcpkg.sh
-          ./vcpkg install boost-system:wasm32-emscripten
+          ./vcpkg install kwsys:wasm32-emscripten
       - name: Upload vcpkg failure logs
         if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: install-wasm32-emscripten-dbg-out.log
-          path: vcpkg/buildtrees/boost-system/install-wasm32-emscripten-dbg-out.log
+          path: vcpkg/buildtrees/kwsys/install-wasm32-emscripten-dbg-out.log
