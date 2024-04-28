@@ -15,3 +15,9 @@ jobs:
           cd vcpkg
           ./bootstrap-vcpkg.sh
           ./vcpkg install boost-system:wasm32-emscripten
+      - name: Upload vcpkg failure logs
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: install-wasm32-emscripten-dbg-out.log
+          path: vcpkg/buildtrees/boost-system/install-wasm32-emscripten-dbg-out.log
